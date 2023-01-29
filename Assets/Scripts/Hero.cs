@@ -25,7 +25,7 @@ namespace PixelCrew
             var isJumping = _direction.y > 0;
             if (isJumping)
             {
-                if (IsGrounded())
+                if (IsGrounded() && _rigidbody.velocity.y <= 0.1f)
                 {
                     _rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
                 }
