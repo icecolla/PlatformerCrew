@@ -41,6 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 953977537
+    locked: 0
+  - name: RearDecor
+    uniqueID: 1621389507
+    locked: 0
+  - name: Level
+    uniqueID: 2199840087
+    locked: 0
+  - name: Props
+    uniqueID: 4207125365
+    locked: 0
   - name: Player
     uniqueID: 3362375683
+    locked: 0
+  - name: Ground
+    uniqueID: 1403358155
+    locked: 0
+  - name: FrontDecor
+    uniqueID: 630774895
     locked: 0
