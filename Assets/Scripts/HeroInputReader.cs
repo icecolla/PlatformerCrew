@@ -15,9 +15,17 @@ namespace PixelCrew
 
         public void OnSaySomething(InputAction.CallbackContext context)
         {
-            if (context.phase == InputActionPhase.Performed)
+            if (context.phase == InputActionPhase.Canceled)
             {
                 _hero.SaySomething();
+            }
+        }
+
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Canceled)
+            {
+                _hero.Interact();
             }
         }
     }
