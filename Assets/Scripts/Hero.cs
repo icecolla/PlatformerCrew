@@ -27,6 +27,9 @@ namespace PixelCrew
         [SerializeField] private LayerMask _interactionLayer;
         private Collider2D[] _interactResult = new Collider2D[1];
 
+        private int _coins = 0;
+
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -137,6 +140,13 @@ namespace PixelCrew
                     interactable.Interact();
                 }
             }
+        }
+
+        public void AddCoins(int coins)
+        {
+            _coins += coins;
+
+            Debug.Log($"{coins} coins added. Total coins {_coins}");
         }
     }
 }
