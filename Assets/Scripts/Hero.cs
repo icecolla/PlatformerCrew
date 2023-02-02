@@ -16,7 +16,6 @@ namespace PixelCrew
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
 
-        private SpriteRenderer _sprite;
         private Animator _animator;
         private static readonly int isGroundKey = Animator.StringToHash("is-ground");
         private static readonly int isRunningKey = Animator.StringToHash("is-running");
@@ -27,6 +26,10 @@ namespace PixelCrew
         [SerializeField] private LayerMask _interactionLayer;
         private Collider2D[] _interactResult = new Collider2D[1];
 
+        [SerializeField] private SpawnComponent _footStepParticles;
+        [SerializeField] private ParticleSystem _coinHitParticles;
+
+
         private int _coins = 0;
 
 
@@ -34,7 +37,6 @@ namespace PixelCrew
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _sprite = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
@@ -99,11 +101,11 @@ namespace PixelCrew
         {
             if (_direction.x > 0)
             {
-                _sprite.flipX = false;
+                transform.localScale = Vector3.one;
             }
             else if (_direction.x < 0)
             {
-                _sprite.flipX = true;
+                transform.localScale = new Vector3(-1, 1, 1);
             }
         }
 
@@ -126,6 +128,11 @@ namespace PixelCrew
         {
             _animator.SetTrigger(hitKey);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpPower);
+
+            if (_coins > 0)
+            {
+                SpawnCoins();
+            }
         }
 
         public void Interact()
@@ -142,11 +149,29 @@ namespace PixelCrew
             }
         }
 
+        public void SpawnFootDust()
+        {
+            _footStepParticles.Spawn();
+        }
+
         public void AddCoins(int coins)
         {
             _coins += coins;
 
             Debug.Log($"{coins} coins added. Total coins {_coins}");
+        }
+
+        private void SpawnCoins()
+        {
+            var numCoinsToSpawn = Mathf.Min(_coins, 5);
+            _coins -= numCoinsToSpawn;
+
+            var burst = _coinHitParticles.emission.GetBurst(0);
+            burst.count = numCoinsToSpawn;
+            _coinHitParticles.emission.SetBurst(0, burst);
+
+            _coinHitParticles.gameObject.SetActive(true);
+            _coinHitParticles.Play();
         }
     }
 }
