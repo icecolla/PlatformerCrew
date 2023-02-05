@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Components
 {
@@ -14,7 +12,7 @@ namespace PixelCrew.Components
 
             if (healthComponent != null)
             {
-                healthComponent.ApplyDamage(_hpDelta);
+                healthComponent.ModifyHealth(_hpDelta);
             }
         }
     }
