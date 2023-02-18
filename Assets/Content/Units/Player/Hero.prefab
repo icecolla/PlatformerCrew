@@ -185,9 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7966377182c6bb045b7cb637aa4f5afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 6
   _jumpPower: 12
-  _damageJumpPower: 50
+  _damageJumpPower: 2
   _groundCheck: {fileID: 5660094024355658700}
   _interactionRadius: 1
   _interactionLayer:

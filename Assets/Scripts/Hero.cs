@@ -12,6 +12,7 @@ namespace PixelCrew
         [SerializeField] private LayerCheck _groundCheck;
         private bool _isGrounded;
         private bool _allowDoubleJump;
+        private bool _isJumping;
 
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
@@ -82,14 +83,17 @@ namespace PixelCrew
             var yVelocity = _rigidbody.velocity.y;
             var isJumpPressing = _direction.y > 0;
 
-            if (_isGrounded) _allowDoubleJump = true;
-
-
+            if (_isGrounded)
+            {
+                _allowDoubleJump = true;
+                _isJumping = false;
+            }
             if (isJumpPressing)
             {
+                _isJumping = true;
                 yVelocity = CalculateJumpVelocity(yVelocity);
             }
-            else if (_rigidbody.velocity.y > 0)
+            else if (_rigidbody.velocity.y > 0 && _isJumping)
             {
                 yVelocity *= 0.5f;
             }
@@ -126,6 +130,7 @@ namespace PixelCrew
 
         public void TakeDamage()
         {
+            _isJumping = false;
             _animator.SetTrigger(hitKey);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpPower);
 
