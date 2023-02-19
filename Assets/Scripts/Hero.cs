@@ -1,5 +1,6 @@
 using PixelCrew.Components;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace PixelCrew
 {
@@ -22,6 +23,7 @@ namespace PixelCrew
         private static readonly int isRunningKey = Animator.StringToHash("is-running");
         private static readonly int verticalVelocityKey = Animator.StringToHash("vertical-velocity");
         private static readonly int hitKey = Animator.StringToHash("hit");
+        private static readonly int deadHitKey = Animator.StringToHash("dead-hit");
 
         [SerializeField] private float _interactionRadius = 1f;
         [SerializeField] private LayerMask _interactionLayer;
@@ -138,6 +140,13 @@ namespace PixelCrew
             {
                 SpawnCoins();
             }
+        }
+
+        public void DeadHit()
+        {
+            GetComponent<PlayerInput>().enabled = false;
+            _damageJumpPower = 0f;
+            _animator.SetTrigger(deadHitKey);
         }
 
         public void Interact()

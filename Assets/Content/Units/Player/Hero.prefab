@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 6
   _jumpPower: 12
-  _damageJumpPower: 2
+  _damageJumpPower: 6
   _groundCheck: {fileID: 5660094024355658700}
   _interactionRadius: 1
   _interactionLayer:
@@ -369,9 +369,9 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PixelCrew.Components.ReloadLevelComponent, Assembly-CSharp
-        m_MethodName: Reload
+      - m_Target: {fileID: 5660094024218399229}
+        m_TargetAssemblyTypeName: PixelCrew.Hero, Assembly-CSharp
+        m_MethodName: DeadHit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
