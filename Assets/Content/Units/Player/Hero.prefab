@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4114577295555361064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8282825035939571340}
+  - component: {fileID: 1575779772577894256}
+  m_Layer: 6
+  m_Name: JumpGroundedSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8282825035939571340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114577295555361064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5660094024218399231}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1575779772577894256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114577295555361064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8452308f03e6e947913f53c72ae43a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 8282825035939571340}
+  _prefab: {fileID: 1828264694852573767, guid: e1941a3ff25b8d044abedcaa9cbc6404, type: 3}
 --- !u!1 &5660094023294733589
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,8 +131,10 @@ Transform:
   - {fileID: 5660094024355658698}
   - {fileID: 5660094023294733586}
   - {fileID: 3108827103268854500}
+  - {fileID: 4555595792263724175}
+  - {fileID: 8282825035939571340}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5660094024218399230
 SpriteRenderer:
@@ -188,12 +236,18 @@ MonoBehaviour:
   _speed: 6
   _jumpPower: 12
   _damageJumpPower: 6
+  _slamDownVelocity: 0.8
   _groundCheck: {fileID: 5660094024355658700}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _interactionRadius: 1
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 256
   _footStepParticles: {fileID: 5660094023294733587}
+  _jumpGroundedParticle: {fileID: 1575779772577894256}
+  _jumpParticle: {fileID: 4950611030725771607}
   _coinHitParticles: {fileID: 3108827103268854498}
 --- !u!114 &5660094024218399227
 MonoBehaviour:
@@ -369,7 +423,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5660094024218399229}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PixelCrew.Hero, Assembly-CSharp
         m_MethodName: DeadHit
         m_Mode: 1
@@ -468,6 +522,52 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isTouchingLayer: 0
+--- !u!1 &5878316416623227563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4555595792263724175}
+  - component: {fileID: 4950611030725771607}
+  m_Layer: 6
+  m_Name: JumpSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4555595792263724175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878316416623227563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5660094024218399231}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4950611030725771607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878316416623227563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8452308f03e6e947913f53c72ae43a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 4555595792263724175}
+  _prefab: {fileID: 1828264694852573767, guid: 36641bc8665b6c8418272d4093334091, type: 3}
 --- !u!1001 &2220307400886343583
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using PixelCrew.Components;
+using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,8 +10,10 @@ namespace PixelCrew
         [SerializeField] private float _speed = 1f;
         [SerializeField] private float _jumpPower = 1f;
         [SerializeField] private float _damageJumpPower = 1.5f;
+        [SerializeField] private float _slamDownVelocity = .8f;
 
         [SerializeField] private LayerCheck _groundCheck;
+        [SerializeField] private LayerMask _groundLayer;
         private bool _isGrounded;
         private bool _allowDoubleJump;
         private bool _isJumping;
@@ -29,7 +32,11 @@ namespace PixelCrew
         [SerializeField] private LayerMask _interactionLayer;
         private Collider2D[] _interactResult = new Collider2D[1];
 
+        [Space][Header("Particles")]
         [SerializeField] private SpawnComponent _footStepParticles;
+        [SerializeField] private SpawnComponent _jumpGroundedParticle;
+        [SerializeField] private SpawnComponent _jumpParticle;
+
         [SerializeField] private ParticleSystem _coinHitParticles;
 
 
@@ -61,6 +68,18 @@ namespace PixelCrew
             UpdateSpriteDirection();
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.IsInLayer(_groundLayer))
+            {
+                var contact = collision.contacts[0];
+                if (contact.relativeVelocity.y >= _slamDownVelocity)
+                {
+                    _jumpGroundedParticle.Spawn();
+                }
+            }
+        }
+
         private float CalculateJumpVelocity(float yVelocity)
         {
             var isFalling = _rigidbody.velocity.y <= 0.001f;
@@ -70,10 +89,12 @@ namespace PixelCrew
             if (_isGrounded)
             {
                 yVelocity += _jumpPower;
+                _jumpParticle.Spawn();
             }
             else if (_allowDoubleJump)
             {
                 yVelocity = _jumpPower;
+                _jumpParticle.Spawn();
                 _allowDoubleJump = false;
             }
 
