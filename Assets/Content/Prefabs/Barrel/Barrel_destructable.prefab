@@ -1,0 +1,251 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &9121323546762757951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 234661934435192234, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_Name
+      value: Barrel_destructable
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192236, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 03c33f4c319b51b4a8fa8b82d45f5d1a, type: 3}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 234661934435192234, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2273606084298698197}
+    - targetCorrespondingSourceObject: {fileID: 234661934435192234, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5004693520968453686}
+    - targetCorrespondingSourceObject: {fileID: 234661934435192234, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3691446045973729769}
+    - targetCorrespondingSourceObject: {fileID: 234661934435192234, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3390193003989616113}
+  m_SourcePrefab: {fileID: 100100000, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+--- !u!4 &9067114638581402256 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+  m_PrefabInstance: {fileID: 9121323546762757951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9067114638581402261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 234661934435192234, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+  m_PrefabInstance: {fileID: 9121323546762757951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2273606084298698197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067114638581402261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bc4519b493c174e854c548625e4251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _clips:
+  - _name: idle
+    _sprites:
+    - {fileID: 21300000, guid: 03c33f4c319b51b4a8fa8b82d45f5d1a, type: 3}
+    _loop: 1
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - _name: hit
+    _sprites:
+    - {fileID: 21300000, guid: b6bfdb7d1546d5345bfdcb52ad6efcda, type: 3}
+    - {fileID: 21300000, guid: 284534b6fac8f114386c966aef510162, type: 3}
+    - {fileID: 21300000, guid: bbf2bdc5e23ad324eaa9a341365b1390, type: 3}
+    - {fileID: 21300000, guid: 813cf4a37f47a754c8960fcb7c087e7a, type: 3}
+    _loop: 0
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2273606084298698197}
+          m_TargetAssemblyTypeName: PixelCrew.Components.SpriteAnimationComponent,
+            Assembly-CSharp
+          m_MethodName: SetClip
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+  - _name: destroy
+    _sprites:
+    - {fileID: 21300000, guid: b6bfdb7d1546d5345bfdcb52ad6efcda, type: 3}
+    - {fileID: 21300000, guid: 284534b6fac8f114386c966aef510162, type: 3}
+    - {fileID: 21300000, guid: bbf2bdc5e23ad324eaa9a341365b1390, type: 3}
+    - {fileID: 21300000, guid: 813cf4a37f47a754c8960fcb7c087e7a, type: 3}
+    _loop: 0
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5004693520968453686}
+          m_TargetAssemblyTypeName: PixelCrew.Components.SpawnComponent, Assembly-CSharp
+          m_MethodName: Spawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 3691446045973729769}
+          m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent,
+            Assembly-CSharp
+          m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &5004693520968453686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067114638581402261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8452308f03e6e947913f53c72ae43a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 9067114638581402256}
+  _prefab: {fileID: 5494923937034677817, guid: c6191c891e16e0641bd8c233eae6bbce, type: 3}
+--- !u!114 &3691446045973729769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067114638581402261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9e7462363453c4393ae27986836d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objToDestroy: {fileID: 9067114638581402261}
+--- !u!114 &3390193003989616113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067114638581402261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc90089e71a06244a760746cff3cbfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _onDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2273606084298698197}
+        m_TargetAssemblyTypeName: PixelCrew.Components.SpriteAnimationComponent,
+          Assembly-CSharp
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hit
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3691446045973729769}
+        m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent, Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
