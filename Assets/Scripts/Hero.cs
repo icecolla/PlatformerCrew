@@ -1,5 +1,6 @@
 using PixelCrew.Components;
 using PixelCrew.Utils;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,6 +46,10 @@ namespace PixelCrew
 
         [SerializeField] private CheckCircleOverlap _attackRange;
         [SerializeField] private int _damage = 1;
+
+        private bool _isArmed;
+        [SerializeField] private AnimatorController _armed;
+        [SerializeField] private AnimatorController _disarmed;
 
 
         private void Awake()
@@ -215,6 +220,8 @@ namespace PixelCrew
 
         public void AttackAnimation()
         {
+            if (!_isArmed) return;
+
             _animator.SetTrigger(attack1Key);
         }
 
@@ -231,6 +238,12 @@ namespace PixelCrew
                     hp.ModifyHealth(-_damage);
                 }
             }
+        }
+
+        public void ArmHero()
+        {
+            _isArmed = true;
+            _animator.runtimeAnimatorController = _armed;
         }
     }
 }
