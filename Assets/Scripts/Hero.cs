@@ -27,6 +27,7 @@ namespace PixelCrew
         private static readonly int verticalVelocityKey = Animator.StringToHash("vertical-velocity");
         private static readonly int hitKey = Animator.StringToHash("hit");
         private static readonly int deadHitKey = Animator.StringToHash("dead-hit");
+        private static readonly int attack1Key = Animator.StringToHash("attack 1");
 
         [SerializeField] private float _interactionRadius = 1f;
         [SerializeField] private LayerMask _interactionLayer;
@@ -41,6 +42,9 @@ namespace PixelCrew
 
 
         private int _coins = 0;
+
+        [SerializeField] private CheckCircleOverlap _attackRange;
+        [SerializeField] private int _damage = 1;
 
 
         private void Awake()
@@ -207,6 +211,26 @@ namespace PixelCrew
 
             _coinHitParticles.gameObject.SetActive(true);
             _coinHitParticles.Play();
+        }
+
+        public void AttackAnimation()
+        {
+            _animator.SetTrigger(attack1Key);
+        }
+
+        public void OnAttackRange()
+        {
+            var gos = _attackRange.GetObjectInRange();
+
+            foreach (var go in gos)
+            {
+                var hp = go.GetComponent<HealthComponent>();
+
+                if (hp != null && go.CompareTag("Enemy"))
+                {
+                    hp.ModifyHealth(-_damage);
+                }
+            }
         }
     }
 }

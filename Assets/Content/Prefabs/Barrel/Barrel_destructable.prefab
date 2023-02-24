@@ -12,21 +12,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel_destructable
       objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192234, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 234661934435192236, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 03c33f4c319b51b4a8fa8b82d45f5d1a, type: 3}
+    - target: {fileID: 234661934435192238, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 234661934435192238, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.84
+      objectReference: {fileID: 0}
     - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 21.25
       objectReference: {fileID: 0}
     - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.609
       objectReference: {fileID: 0}
     - target: {fileID: 234661934435192239, guid: 9926efc4d8241da42b83bdb4f6470bde, type: 3}
       propertyPath: m_LocalPosition.z
@@ -234,16 +246,17 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3691446045973729769}
-        m_TargetAssemblyTypeName: PixelCrew.Components.DestroyObjectComponent, Assembly-CSharp
-        m_MethodName: DestroyObject
-        m_Mode: 1
+      - m_Target: {fileID: 2273606084298698197}
+        m_TargetAssemblyTypeName: PixelCrew.Components.SpriteAnimationComponent,
+          Assembly-CSharp
+        m_MethodName: SetClip
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
   _onChange:
