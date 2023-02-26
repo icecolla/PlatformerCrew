@@ -4,10 +4,11 @@ namespace PixelCrew
 {
     public class LayerCheck : MonoBehaviour
     {
-        [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private LayerMask _layer;
+        [SerializeField] private bool _isTouchingLayer;
         private Collider2D _collider;
 
-        public bool isTouchingLayer;
+        public bool IsTouchingLayer => _isTouchingLayer;
 
         private void Awake()
         {
@@ -16,12 +17,12 @@ namespace PixelCrew
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            isTouchingLayer = _collider.IsTouchingLayers(_groundLayer);
+            _isTouchingLayer = _collider.IsTouchingLayers(_layer);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            isTouchingLayer = _collider.IsTouchingLayers(_groundLayer);
+            _isTouchingLayer = _collider.IsTouchingLayers(_layer);
         }
     }
 }

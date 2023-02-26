@@ -6,10 +6,11 @@ namespace PixelCrew.Creatures
     public class Creature : MonoBehaviour
     {
         [Header("Params")]
+        [SerializeField] private bool _invertScale;
         [SerializeField] private float _speed = 1f;
         [SerializeField] protected float _jumpPower = 1f;
         [SerializeField] private float _damageJumpPower = 1.5f;
-        [SerializeField] private int _damage = 1;
+        //[SerializeField] private int _damage = 1;
 
         [Header("Checkers")]
         [SerializeField] protected LayerMask _groundLayer;
@@ -38,7 +39,7 @@ namespace PixelCrew.Creatures
 
         protected virtual void Update()
         {
-            _isGrounded = _groundCheck.isTouchingLayer;
+            _isGrounded = _groundCheck.IsTouchingLayer;
         }
 
         public void SetDirection(Vector2 direction)
@@ -57,18 +58,19 @@ namespace PixelCrew.Creatures
             _animator.SetBool(isGroundKey, _isGrounded);
             _animator.SetFloat(verticalVelocityKey, _rigidbody.velocity.y);
 
-            UpdateSpriteDirection();
+            UpdateSpriteDirection(_direction);
         }
 
-        private void UpdateSpriteDirection()
+        public void UpdateSpriteDirection(Vector2 direction)
         {
-            if (_direction.x > 0)
+            var multiplier = _invertScale ? -1 : 1;
+            if (direction.x > 0)
             {
-                transform.localScale = Vector3.one;
+                transform.localScale = new Vector3(multiplier, 1, 1);
             }
-            else if (_direction.x < 0)
+            else if (direction.x < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-1 * multiplier, 1, 1);
             }
         }
 

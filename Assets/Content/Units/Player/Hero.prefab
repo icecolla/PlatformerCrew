@@ -393,10 +393,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7966377182c6bb045b7cb637aa4f5afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _invertScale: 0
   _speed: 6
   _jumpPower: 12
   _damageJumpPower: 6
-  _damage: 1
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -712,10 +712,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b526dede9c12e4c4daccc13afaf7676b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLayer:
+  _layer:
     serializedVersion: 2
     m_Bits: 128
-  isTouchingLayer: 0
+  _isTouchingLayer: 0
 --- !u!1 &5878316416623227563
 GameObject:
   m_ObjectHideFlags: 0

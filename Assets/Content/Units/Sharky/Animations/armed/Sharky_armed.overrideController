@@ -8,4 +8,22 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Sharky_armed
   m_Controller: {fileID: 9100000, guid: 8a68b20404f65f64b851fb5d8760c3c2, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: b4cdd312dcfb0e343b61c8a871fb8559, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6676b4c469e6d664390bacc5c86acbae, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 61076302c0a768040a0f5b39eac71874, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4255355600b734b468a6909c9c7308db, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6e0c54b03e49b3e4c9f1105d707a4944, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 718719fa7f58d6d44926ed17662cc71b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8a31262cdf606d8479748bfcb56c1d1a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8d858e546408e654d97adff2a281518c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 19314f5d8f60ad5468d9fdd710e4c209, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8c9f44fd2553bf3488c1b326cbd29ba9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 232a7efddff279d48bd6592aea489324, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fe1d462d079f29d48ad165fdb45bf013, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 14f27e7b9ebf36e47a838a0b6e8e564c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f94779861c39d914bbbbd620beb4cb69, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: eb8fbbd81a9e04f4794683e2b64665f7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 84de307ff94ac5141bd259e2273a9712, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5948e90a479822c46ae3fdc41902c946, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7c03e91adb6d2b64b846df1137f1698f, type: 2}
