@@ -216,7 +216,7 @@ Transform:
   - {fileID: 8282825035939571340}
   - {fileID: 2087918389}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5660094024218399230
 SpriteRenderer:
@@ -280,7 +280,7 @@ Animator:
   m_GameObject: {fileID: 5660094024218399217}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8a68b20404f65f64b851fb5d8760c3c2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 790b9c58022164249b49bb5090ed2f29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -333,6 +333,8 @@ MonoBehaviour:
   _coinHitParticles: {fileID: 3108827103268854498}
   _attackRange: {fileID: 2087918387}
   _damage: 1
+  _armed: {fileID: 9100000, guid: 8a68b20404f65f64b851fb5d8760c3c2, type: 2}
+  _disarmed: {fileID: 9100000, guid: 790b9c58022164249b49bb5090ed2f29, type: 2}
 --- !u!114 &5660094024218399227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,11 +524,14 @@ MonoBehaviour:
       m_Calls: []
   _onDie:
     m_PersistentCalls:
+      m_Calls: []
+  _onChange:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5660094024218399229}
         m_TargetAssemblyTypeName: PixelCrew.Hero, Assembly-CSharp
-        m_MethodName: DeadHit
-        m_Mode: 1
+        m_MethodName: OnHealthChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -535,9 +540,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onChange:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5660094024355658703
 GameObject:
   m_ObjectHideFlags: 0

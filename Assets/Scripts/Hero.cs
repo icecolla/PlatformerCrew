@@ -1,4 +1,5 @@
 using PixelCrew.Components;
+using PixelCrew.Model;
 using PixelCrew.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -41,21 +42,27 @@ namespace PixelCrew
 
         [SerializeField] private ParticleSystem _coinHitParticles;
 
-
-        private int _coins = 0;
-
         [SerializeField] private CheckCircleOverlap _attackRange;
         [SerializeField] private int _damage = 1;
 
-        private bool _isArmed;
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
+        private GameSession _session;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            _session = FindObjectOfType<GameSession>();
+            var health = GetComponent<HealthComponent>();
+
+            health.SetHealth(_session.Data.Hp);
+            UpdateHeroWeapon();
         }
 
         private void Update()
@@ -166,7 +173,7 @@ namespace PixelCrew
             _animator.SetTrigger(hitKey);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpPower);
 
-            if (_coins > 0)
+            if (_session.Data.Coins > 0)
             {
                 SpawnCoins();
             }
@@ -200,15 +207,15 @@ namespace PixelCrew
 
         public void AddCoins(int coins)
         {
-            _coins += coins;
+            _session.Data.Coins += coins;
 
-            Debug.Log($"{coins} coins added. Total coins {_coins}");
+            Debug.Log($"{coins} coins added. Total coins {_session.Data.Coins}");
         }
 
         private void SpawnCoins()
         {
-            var numCoinsToSpawn = Mathf.Min(_coins, 5);
-            _coins -= numCoinsToSpawn;
+            var numCoinsToSpawn = Mathf.Min(_session.Data.Coins, 5);
+            _session.Data.Coins -= numCoinsToSpawn;
 
             var burst = _coinHitParticles.emission.GetBurst(0);
             burst.count = numCoinsToSpawn;
@@ -220,7 +227,7 @@ namespace PixelCrew
 
         public void AttackAnimation()
         {
-            if (!_isArmed) return;
+            if (!_session.Data.IsArmed) return;
 
             _animator.SetTrigger(attack1Key);
         }
@@ -242,8 +249,18 @@ namespace PixelCrew
 
         public void ArmHero()
         {
-            _isArmed = true;
-            _animator.runtimeAnimatorController = _armed;
+            _session.Data.IsArmed = true;
+            UpdateHeroWeapon();
+        }
+
+        private void UpdateHeroWeapon()
+        {
+            _animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
+        }
+
+        public void OnHealthChanged(int currentHealth)
+        {
+            _session.Data.Hp = currentHealth;
         }
     }
 }

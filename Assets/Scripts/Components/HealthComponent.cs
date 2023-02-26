@@ -10,19 +10,6 @@ namespace PixelCrew.Components
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private UnityEvent _onDie;
-
-        // OLD
-        //public void ApplyDamage(int damageValue)
-        //{
-        //    _health -= damageValue;
-        //    _onDamage?.Invoke();
-
-        //    if (_health <= 0)
-        //    {
-        //        _onDie?.Invoke();
-        //    }
-        //}
-
         [SerializeField] private HealthChangeEvent _onChange;
 
         public void ModifyHealth(int healthDelta)
@@ -46,6 +33,16 @@ namespace PixelCrew.Components
                 _onDie?.Invoke();
             }
         }
+
+#if UNITY_EDITOR
+
+        [ContextMenu("Update Health")]
+        private void UpdateHealth()
+        {
+            _onChange?.Invoke(_health);
+        }
+
+#endif
 
         public void SetHealth(int health)
         {
