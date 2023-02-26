@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 5660094024218399224}
   - component: {fileID: 5660094024218399225}
   - component: {fileID: 5660094024218399206}
+  - component: {fileID: 5413201231490104165}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Player
@@ -318,21 +319,19 @@ MonoBehaviour:
   _speed: 6
   _jumpPower: 12
   _damageJumpPower: 6
-  _slamDownVelocity: 0.8
-  _groundCheck: {fileID: 5660094024355658700}
+  _damage: 1
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  _groundCheck: {fileID: 5660094024355658700}
+  _attackRange: {fileID: 2087918387}
+  _particles: {fileID: 5413201231490104165}
+  _slamDownVelocity: 0.8
   _interactionRadius: 1
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 256
-  _footStepParticles: {fileID: 5660094023294733587}
-  _jumpGroundedParticle: {fileID: 1575779772577894256}
-  _jumpParticle: {fileID: 4950611030725771607}
   _coinHitParticles: {fileID: 3108827103268854498}
-  _attackRange: {fileID: 2087918387}
-  _damage: 1
   _armed: {fileID: 9100000, guid: 8a68b20404f65f64b851fb5d8760c3c2, type: 2}
   _disarmed: {fileID: 9100000, guid: 790b9c58022164249b49bb5090ed2f29, type: 2}
 --- !u!114 &5660094024218399227
@@ -540,6 +539,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5413201231490104165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660094024218399217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b8652cc6dff0a429b46824de686b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners:
+  - Id: Run
+    Component: {fileID: 5660094023294733587}
+  - Id: Jump
+    Component: {fileID: 4950611030725771607}
+  - Id: Slamdown
+    Component: {fileID: 1575779772577894256}
 --- !u!1 &5660094024355658703
 GameObject:
   m_ObjectHideFlags: 0
