@@ -12,9 +12,7 @@ namespace PixelCrew.Creatures
 
         private bool _allowDoubleJump;
 
-        [SerializeField] private float _interactionRadius = 1f;
-        [SerializeField] private LayerMask _interactionLayer;
-        private Collider2D[] _interactResult = new Collider2D[1];
+        [SerializeField] private CheckCircleOverlap _interactionCheck;
 
         [SerializeField] private ParticleSystem _coinHitParticles;
 
@@ -93,16 +91,7 @@ namespace PixelCrew.Creatures
 
         public void Interact()
         {
-            var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius, _interactResult, _interactionLayer);
-
-            for (int i = 0; i < size; i++)
-            {
-                var interactable = _interactResult[i].GetComponent<InteractableComponent>();
-                if (interactable != null)
-                {
-                    interactable.Interact();
-                }
-            }
+            _interactionCheck.Check();
         }
 
         public void AddCoins(int coins)

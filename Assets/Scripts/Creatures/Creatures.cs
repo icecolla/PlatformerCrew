@@ -27,7 +27,7 @@ namespace PixelCrew.Creatures
         private static readonly int isRunningKey = Animator.StringToHash("is-running");
         private static readonly int verticalVelocityKey = Animator.StringToHash("vertical-velocity");
         private static readonly int hitKey = Animator.StringToHash("hit");
-        private static readonly int attackKey = Animator.StringToHash("attack");
+        private static readonly int attackKey = Animator.StringToHash("attack 1");
 
 
         protected virtual void Awake()
@@ -119,17 +119,7 @@ namespace PixelCrew.Creatures
 
         public void OnAttackRange()
         {
-            var gos = _attackRange.GetObjectInRange();
-
-            foreach (var go in gos)
-            {
-                var hp = go.GetComponent<HealthComponent>();
-
-                if (hp != null && go.CompareTag("Enemy"))
-                {
-                    hp.ModifyHealth(-_damage);
-                }
-            }
+            _attackRange.Check();
         }
     }
 }

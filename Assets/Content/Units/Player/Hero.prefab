@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2087918389}
-  - component: {fileID: 2087918388}
   - component: {fileID: 2087918387}
-  m_Layer: 0
+  - component: {fileID: 2357241915382477199}
+  m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,41 +33,6 @@ Transform:
   m_Father: {fileID: 5660094024218399231}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2087918388
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087918386}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25
 --- !u!114 &2087918387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +46,117 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 0.25
+  _mask:
+    serializedVersion: 2
+    m_Bits: 951
+  _tags:
+  - Enemy
+  _onOverLap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2357241915382477199}
+        m_TargetAssemblyTypeName: PixelCrew.Components.ModifyHealthComponent, Assembly-CSharp
+        m_MethodName: ApplyHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2357241915382477199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087918386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c7db53a9519a3429d2b0c7a1d3efe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hpDelta: -1
+--- !u!1 &2934459192805038132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3998274561267589678}
+  - component: {fileID: 8707405975881161487}
+  - component: {fileID: 4134506190603417321}
+  m_Layer: 6
+  m_Name: InteractionCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3998274561267589678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934459192805038132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5660094024218399231}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8707405975881161487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934459192805038132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8177aa4669af75247b4ca4accc27fb35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.55
+  _mask:
+    serializedVersion: 2
+    m_Bits: 256
+  _tags:
+  - Interactable
+  _onOverLap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4134506190603417321}
+        m_TargetAssemblyTypeName: PixelCrew.Components.DoInteractionComponent, Assembly-CSharp
+        m_MethodName: DoInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4134506190603417321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934459192805038132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a99fa826f025441b8b682b5d1c3e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4114577295555361064
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +292,7 @@ Transform:
   - {fileID: 4555595792263724175}
   - {fileID: 8282825035939571340}
   - {fileID: 2087918389}
+  - {fileID: 3998274561267589678}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -327,10 +404,7 @@ MonoBehaviour:
   _attackRange: {fileID: 2087918387}
   _particles: {fileID: 5413201231490104165}
   _slamDownVelocity: 0.8
-  _interactionRadius: 1
-  _interactionLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  _interactionCheck: {fileID: 8707405975881161487}
   _coinHitParticles: {fileID: 3108827103268854498}
   _armed: {fileID: 9100000, guid: 8a68b20404f65f64b851fb5d8760c3c2, type: 2}
   _disarmed: {fileID: 9100000, guid: 790b9c58022164249b49bb5090ed2f29, type: 2}
@@ -569,7 +643,7 @@ GameObject:
   - component: {fileID: 5660094024355658698}
   - component: {fileID: 5660094024355658701}
   - component: {fileID: 5660094024355658700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,6 +773,10 @@ PrefabInstance:
     - target: {fileID: 3887969968208350584, guid: fb260fa1ee671b84dbf6137f2eed437d, type: 3}
       propertyPath: m_Name
       value: CoinHitParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887969968208350584, guid: fb260fa1ee671b84dbf6137f2eed437d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3887969968208350587, guid: fb260fa1ee671b84dbf6137f2eed437d, type: 3}
       propertyPath: m_RootOrder
