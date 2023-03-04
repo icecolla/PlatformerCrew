@@ -1,18 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Creatures.Weapons
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : BaseProjectile
     {
-        [SerializeField] private float _speed = 1f;
-
-        private Rigidbody2D _rb;
-        private int _direction;
-
-        private void Start()
+        protected override void Start()
         {
-            _direction = transform.lossyScale.x > 0 ? 1 : -1;
-            _rb = GetComponent<Rigidbody2D>();
+            base.Start();
         }
 
         private void FixedUpdate()
