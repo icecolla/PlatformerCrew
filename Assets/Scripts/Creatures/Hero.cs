@@ -21,6 +21,8 @@ namespace PixelCrew.Creatures
 
         private GameSession _session;
 
+        private static readonly int throwKey = Animator.StringToHash("throw");
+
         protected override void Awake()
         {
             base.Awake();
@@ -134,6 +136,16 @@ namespace PixelCrew.Creatures
         public void OnHealthChanged(int currentHealth)
         {
             _session.Data.Hp = currentHealth;
+        }
+
+        public void ThrowAnimation()
+        {
+            _animator.SetTrigger(throwKey);
+        }
+
+        public void OnDoThrow()
+        {
+            _particles.Spawn("Throw");
         }
     }
 }

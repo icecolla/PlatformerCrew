@@ -37,5 +37,12 @@ namespace PixelCrew
                 _hero.AttackAnimation();
             }
         }
+        public void OnThrow(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                _hero.ThrowAnimation();
+            }
+        }
     }
 }
