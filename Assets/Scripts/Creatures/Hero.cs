@@ -23,6 +23,8 @@ namespace PixelCrew.Creatures
 
         private static readonly int throwKey = Animator.StringToHash("throw");
 
+        [SerializeField] private Cooldown _throwCooldown;
+
         protected override void Awake()
         {
             base.Awake();
@@ -140,7 +142,11 @@ namespace PixelCrew.Creatures
 
         public void ThrowAnimation()
         {
-            _animator.SetTrigger(throwKey);
+            if (_throwCooldown.IsReady)
+            {
+                _animator.SetTrigger(throwKey);
+                _throwCooldown.Reset();
+            }
         }
 
         public void OnDoThrow()
