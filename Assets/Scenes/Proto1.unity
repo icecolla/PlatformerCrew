@@ -1442,7 +1442,7 @@ MonoBehaviour:
   _data:
     Coins: 0
     Hp: 5
-    IsArmed: 1
+    IsArmed: 0
 --- !u!4 &1787507990
 Transform:
   m_ObjectHideFlags: 0
