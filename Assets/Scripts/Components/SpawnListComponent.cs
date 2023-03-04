@@ -12,6 +12,24 @@ namespace PixelCrew.Components
         {
             var spawner = _spawners.FirstOrDefault(element => element.Id == id);
             spawner?.Component.Spawn();
+
+            // same as upper code
+            //foreach(var data in _spawners)
+            //{
+            //    if (data.Id == id)
+            //    {
+            //        data.Component.Spawn();
+            //        break;
+            //    }
+            //}
+        }
+
+        public void SpawnAll()
+        {
+            foreach (var spawnData in _spawners)
+            {
+                spawnData.Component.Spawn();
+            }
         }
 
         [Serializable]

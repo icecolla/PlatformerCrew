@@ -1,0 +1,252 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2395734971540583128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7207496243262468347}
+  - component: {fileID: 2889524869011369638}
+  m_Layer: 7
+  m_Name: DropSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7207496243262468347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395734971540583128}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4057368561470167615}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2889524869011369638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395734971540583128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8452308f03e6e947913f53c72ae43a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 7207496243262468347}
+  _prefab: {fileID: 8689900012381516138}
+  _invertXScale: 0
+--- !u!1 &8689900012381516138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3344423705638940720}
+  - component: {fileID: 3779904953702690434}
+  - component: {fileID: 3604172208727171399}
+  m_Layer: 7
+  m_Name: Drop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3344423705638940720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689900012381516138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4057368561470167615}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3779904953702690434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689900012381516138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2795ec65f51ff62408e4f048ab41d356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _count: 10
+  _drop:
+  - Drop: {fileID: 7522186285711415299, guid: c0792309bc68d0648af54ef6dd8c4338, type: 3}
+    Probability: 80
+  - Drop: {fileID: 7787133066219103151, guid: 31951db965f6cbe45b6989318e277e77, type: 3}
+    Probability: 20
+  _onDropCalculated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3604172208727171399}
+        m_TargetAssemblyTypeName: PixelCrew.RandomSpawner, Assembly-CSharp
+        m_MethodName: StartDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _spawnOnEnable: 1
+--- !u!114 &3604172208727171399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689900012381516138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac2de787cbc1ad4e93a1248e8786512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sectorAngle: 60
+  _sectorRotation: 0
+  _waitTime: 0.1
+  _speed: 6
+--- !u!1001 &5015452581819306159
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2273606084298698197, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: _clips.Array.data[2]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3113638865410235876}
+    - target: {fileID: 2273606084298698197, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: _clips.Array.data[2]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnAll
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273606084298698197, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: _clips.Array.data[2]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PixelCrew.Components.SpawnListComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067114638581402261, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      propertyPath: m_Name
+      value: Barrel_destructable_drop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3344423705638940720}
+    - targetCorrespondingSourceObject: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7207496243262468347}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9067114638581402261, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3113638865410235876}
+  m_SourcePrefab: {fileID: 100100000, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+--- !u!114 &67072069285830297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5004693520968453686, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+  m_PrefabInstance: {fileID: 5015452581819306159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057368561470167610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8452308f03e6e947913f53c72ae43a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4057368561470167610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9067114638581402261, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+  m_PrefabInstance: {fileID: 5015452581819306159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3113638865410235876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057368561470167610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b8652cc6dff0a429b46824de686b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners:
+  - Id: 
+    Component: {fileID: 67072069285830297}
+  - Id: 
+    Component: {fileID: 2889524869011369638}
+--- !u!4 &4057368561470167615 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9067114638581402256, guid: cc8f4a2e82ca507488d1e09ee3ee1771, type: 3}
+  m_PrefabInstance: {fileID: 5015452581819306159}
+  m_PrefabAsset: {fileID: 0}
