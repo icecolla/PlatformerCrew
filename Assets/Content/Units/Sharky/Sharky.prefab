@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2840269835687474361}
   _prefab: {fileID: 1828264694852573767, guid: d9930dced8049084b8511ee3d3a597e4, type: 3}
+  _invertXScale: 0
 --- !u!1 &2144182661046174714
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 648056961027407654}
   _prefab: {fileID: 1828264694852573767, guid: d3373eb725d11314eb3336a87b0e9637, type: 3}
+  _invertXScale: 0
 --- !u!1 &4114577295555361064
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 8282825035939571340}
   _prefab: {fileID: 1828264694852573767, guid: e1941a3ff25b8d044abedcaa9cbc6404, type: 3}
+  _invertXScale: 0
 --- !u!1 &4780366914857843783
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +381,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -439,6 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5660094023294733586}
   _prefab: {fileID: 1828264694852573767, guid: 659d1fcb117e27d47b4068f7f05f2bc7, type: 3}
+  _invertXScale: 1
 --- !u!1 &5660094024218399217
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +492,7 @@ Transform:
   - {fileID: 648056961027407654}
   - {fileID: 2840269835687474361}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5660094024218399230
 SpriteRenderer:
@@ -878,3 +885,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 4555595792263724175}
   _prefab: {fileID: 1828264694852573767, guid: 36641bc8665b6c8418272d4093334091, type: 3}
+  _invertXScale: 0
