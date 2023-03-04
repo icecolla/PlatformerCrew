@@ -1298,10 +1298,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5290481447962366226, guid: c2c10c20bffb5474dbfc655fecebb7a6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.038
-      objectReference: {fileID: 0}
     - target: {fileID: 5660094024218399217, guid: c2c10c20bffb5474dbfc655fecebb7a6, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -1566,7 +1562,7 @@ MonoBehaviour:
   _data:
     Coins: 0
     Hp: 5
-    IsArmed: 1
+    IsArmed: 0
 --- !u!4 &1787507990
 Transform:
   m_ObjectHideFlags: 0
