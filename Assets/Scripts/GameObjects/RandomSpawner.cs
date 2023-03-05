@@ -37,6 +37,14 @@ namespace PixelCrew
             TryStopRoutine();
         }
 
+        public void DropImidiate(GameObject[] items)
+        {
+            foreach (var item in items)
+            {
+                Spawn(item);
+            }
+        }
+
         private void TryStopRoutine()
         {
             if (_routine != null)
