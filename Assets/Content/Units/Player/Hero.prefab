@@ -498,7 +498,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  _groundCheck: {fileID: 5660094024355658700}
+  _groundCheck: {fileID: 0}
   _attackRange: {fileID: 2087918387}
   _particles: {fileID: 5413201231490104165}
   _slamDownVelocity: 0.8
@@ -762,7 +762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5660094024355658698}
   - component: {fileID: 5660094024355658701}
-  - component: {fileID: 5660094024355658700}
+  - component: {fileID: 719252604748115700}
   m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -820,7 +820,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &5660094024355658700
+--- !u!114 &719252604748115700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5660094024355658703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b526dede9c12e4c4daccc13afaf7676b, type: 3}
+  m_Script: {fileID: 11500000, guid: d3c90d41cadd2e14b9487bad8aad07cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
