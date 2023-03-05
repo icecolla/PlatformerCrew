@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PixelCrew.Creatures.Mobs
 {
-    public class ShootingTrapAI : MonoBehaviour
+    public class SeashellAI : MonoBehaviour
     {
         [SerializeField] private LayerCheck _vision;
 
