@@ -77,7 +77,7 @@ namespace PixelCrew.Model.Data
     [Serializable]
     public class InventoryItemData
     {
-        public string Id;
+        [InventoryId] public string Id;
         public int Value;
 
         public InventoryItemData(string id)

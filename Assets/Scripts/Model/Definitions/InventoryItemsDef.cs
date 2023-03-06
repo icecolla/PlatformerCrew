@@ -19,9 +19,9 @@ namespace PixelCrew.Model.Defenitions
             return default;
         }
 
-//#if UNITY_EDITOR
-//        public ItemDef[] ItemsForEditor => _items;
-//#endif
+#if UNITY_EDITOR
+        public ItemDef[] ItemsForEditor => _items;
+#endif
 
     }
 
