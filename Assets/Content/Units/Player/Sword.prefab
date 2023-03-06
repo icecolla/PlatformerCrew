@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6762442952734298871}
   - component: {fileID: 6762442952734298867}
   - component: {fileID: 6762442952734298866}
+  - component: {fileID: 5650262865649214636}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -204,13 +205,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PixelCrew.Hero, Assembly-CSharp
-        m_MethodName: ArmHero
-        m_Mode: 1
+      - m_Target: {fileID: 5650262865649214636}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Collectables.InventoryAddComponent,
+          Assembly-CSharp
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -245,3 +250,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objToDestroy: {fileID: 6762442952734298824}
+--- !u!114 &5650262865649214636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6762442952734298824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6871c07f1578fc1498128a0ea456c791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Sword
+  _count: 1

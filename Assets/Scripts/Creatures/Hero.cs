@@ -25,6 +25,9 @@ namespace PixelCrew.Creatures
 
         [SerializeField] private Cooldown _throwCooldown;
 
+        private int CoinsCount => _session.Data.Inventory.Count("Coin");
+        private int SwordCount => _session.Data.Inventory.Count("Sword");
+
         protected override void Awake()
         {
             base.Awake();
@@ -33,10 +36,31 @@ namespace PixelCrew.Creatures
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
+
+            _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            _session.Data.Inventory.OnChanged += PrintHandlerDebug;
+
             var health = GetComponent<HealthComponent>();
 
             health.SetHealth(_session.Data.Hp);
             UpdateHeroWeapon();
+        }
+
+        private void OnDestroy()
+        {
+            _session.Data.Inventory.OnChanged -= OnInventoryChanged;
+            _session.Data.Inventory.OnChanged -= PrintHandlerDebug;
+        }
+
+        private void OnInventoryChanged(string id, int value)
+        {
+            if (id == "Sword")
+                UpdateHeroWeapon();
+        }
+
+        private void PrintHandlerDebug(string id, int value)
+        {
+            Debug.Log($"Inventory changed: {id}: {value}");
         }
 
         protected override void Update()
@@ -87,7 +111,7 @@ namespace PixelCrew.Creatures
         {
             base.TakeDamage();
 
-            if (_session.Data.Coins > 0)
+            if (CoinsCount > 0)
             {
                 SpawnCoins();
             }
@@ -98,16 +122,21 @@ namespace PixelCrew.Creatures
             _interactionCheck.Check();
         }
 
-        public void AddCoins(int coins)
+        public void AddInventory(string id, int value)
         {
-            _session.Data.Coins += coins;
-            Debug.Log($"{coins} coins added. Total coins {_session.Data.Coins}");
+            _session.Data.Inventory.Add(id, value);
         }
+
+        //public void AddCoins(int coins)
+        //{
+        //    _session.Data.Coins += coins;
+        //    Debug.Log($"{coins} coins added. Total coins {_session.Data.Coins}");
+        //}
 
         private void SpawnCoins()
         {
-            var numCoinsToSpawn = Mathf.Min(_session.Data.Coins, 5);
-            _session.Data.Coins -= numCoinsToSpawn;
+            var numCoinsToSpawn = Mathf.Min(CoinsCount, 5);
+            _session.Data.Inventory.Remove("Coin", numCoinsToSpawn);
 
             var burst = _coinHitParticles.emission.GetBurst(0);
             burst.count = numCoinsToSpawn;
@@ -119,20 +148,20 @@ namespace PixelCrew.Creatures
 
         public override void AttackAnimation()
         {
-            if (!_session.Data.IsArmed) return;
+            if (SwordCount <= 0) return;
 
             base.AttackAnimation();
         }
 
-        public void ArmHero()
-        {
-            _session.Data.IsArmed = true;
-            UpdateHeroWeapon();
-        }
+        //public void ArmHero()
+        //{
+        //    _session.Data.IsArmed = true;
+        //    UpdateHeroWeapon();
+        //}
 
         private void UpdateHeroWeapon()
         {
-            _animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
+            _animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _disarmed;
         }
 
         public void OnHealthChanged(int currentHealth)

@@ -5,18 +5,18 @@ namespace PixelCrew.Components
 {
     public class AddCoinComponent : MonoBehaviour
     {
-        [SerializeField] private int _numCoins;
+        //[SerializeField] private int _numCoins;
 
-        private Hero _hero;
+        //private Hero _hero;
 
-        private void Start()
-        {
-            _hero = FindObjectOfType<Hero>();
-        }
+        //private void Start()
+        //{
+        //    _hero = FindObjectOfType<Hero>();
+        //}
 
-        public void Add()
-        {
-            _hero.AddCoins(_numCoins);
-        }
+        //public void Add()
+        //{
+        //    _hero.AddCoins(_numCoins);
+        //}
     }
 }

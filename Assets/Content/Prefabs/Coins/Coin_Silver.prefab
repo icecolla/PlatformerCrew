@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6766301442641094995}
   - component: {fileID: 6766301442641094959}
   - component: {fileID: 6766301442641094956}
-  - component: {fileID: 6766301442641094994}
+  - component: {fileID: 8373373947498383447}
   m_Layer: 0
   m_Name: Coin_Silver
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6766301442641094993
 SpriteRenderer:
@@ -188,13 +188,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6766301442641094994}
-        m_TargetAssemblyTypeName: PixelCrew.Components.AddCoinComponent, Assembly-CSharp
+      - m_Target: {fileID: 8373373947498383447}
+        m_TargetAssemblyTypeName: PixelCrew.Components.Collectables.InventoryAddComponent,
+          Assembly-CSharp
         m_MethodName: Add
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -241,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objToDestroy: {fileID: 6766301442641094957}
---- !u!114 &6766301442641094994
+--- !u!114 &8373373947498383447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +254,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6766301442641094957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 746838b1db99ec3419e2499233fada2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6871c07f1578fc1498128a0ea456c791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numCoins: 1
+  _id: Coin
+  _count: 1
