@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1.625, y: 0.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &9210948316665387043
@@ -105,11 +105,11 @@ MonoBehaviour:
   _clips:
   - _name: in
     _sprites:
-    - {fileID: 21300000, guid: 89a2ca96de2fec94986bbe7c017149d4, type: 3}
-    - {fileID: 21300000, guid: a64d3c8f35f2bac41ae770f6aa912f60, type: 3}
-    - {fileID: 21300000, guid: d787d8af045a08d4b86110bfc150694b, type: 3}
-    - {fileID: 21300000, guid: 446c6bd742d419c44b72bffdc15655f8, type: 3}
-    - {fileID: 21300000, guid: 5f81b9c3cb8e0124ea1a762349cd02f4, type: 3}
+    - {fileID: 21300000, guid: d886473ac0242d8489ea215555579d33, type: 3}
+    - {fileID: 21300000, guid: dc2f97250e7af2d4bb3198b3ad42c3ee, type: 3}
+    - {fileID: 21300000, guid: 96ab9d1689ffde64580541038e4a4d5b, type: 3}
+    - {fileID: 21300000, guid: 21893ab858a12a947b74ecc42b7599aa, type: 3}
+    - {fileID: 21300000, guid: 3b69961e6c5a794469455d9b6198653f, type: 3}
     _loop: 0
     _allowNextClip: 0
     _onComplete:
