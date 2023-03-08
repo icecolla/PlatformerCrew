@@ -15,7 +15,8 @@ namespace PixelCrew.Creatures
 
         [SerializeField] private CheckCircleOverlap _interactionCheck;
 
-        [SerializeField] private ParticleSystem _coinHitParticles;
+        //[SerializeField] private ParticleSystem _coinHitParticles;
+        [SerializeField] private ProbabilityDropComponent _hitDrop;
 
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
@@ -145,12 +146,15 @@ namespace PixelCrew.Creatures
             var numCoinsToSpawn = Mathf.Min(CoinsCount, 5);
             _session.Data.Inventory.Remove("Coin", numCoinsToSpawn);
 
-            var burst = _coinHitParticles.emission.GetBurst(0);
-            burst.count = numCoinsToSpawn;
-            _coinHitParticles.emission.SetBurst(0, burst);
+            _hitDrop.SetCount(numCoinsToSpawn);
+            _hitDrop.CalculateDrop();
 
-            _coinHitParticles.gameObject.SetActive(true);
-            _coinHitParticles.Play();
+            //var burst = _coinHitParticles.emission.GetBurst(0);
+            //burst.count = numCoinsToSpawn;
+            //_coinHitParticles.emission.SetBurst(0, burst);
+
+            //_coinHitParticles.gameObject.SetActive(true);
+            //_coinHitParticles.Play();
         }
 
         public override void AttackAnimation()
