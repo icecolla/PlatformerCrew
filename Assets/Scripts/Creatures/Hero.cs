@@ -1,6 +1,7 @@
 using PixelCrew.Components;
 using PixelCrew.Model;
 using PixelCrew.Utils;
+using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -27,6 +28,12 @@ namespace PixelCrew.Creatures
 
         private int CoinsCount => _session.Data.Inventory.Count("Coin");
         private int SwordCount => _session.Data.Inventory.Count("Sword");
+
+        [Header("Super Throw")]
+        [SerializeField] private Cooldown _superThrowCooldown;
+        [SerializeField] private int _superThrowParticles;
+        [SerializeField] private float _superThrowDelay;
+        private bool _superThrow;
 
         protected override void Awake()
         {
@@ -171,7 +178,7 @@ namespace PixelCrew.Creatures
 
         public void ThrowAnimation()
         {
-            if (_throwCooldown.IsReady)
+            if (_throwCooldown.IsReady && SwordCount > 1)
             {
                 _animator.SetTrigger(throwKey);
                 _throwCooldown.Reset();
@@ -180,7 +187,50 @@ namespace PixelCrew.Creatures
 
         public void OnDoThrow()
         {
+            if (_superThrow)
+            {
+                var numThrows = Mathf.Min(_superThrowParticles, SwordCount - 1);
+                StartCoroutine(DoSuperThrow(numThrows));
+            }
+            else
+            {
+                ThrowAndRemoveFromInventory();
+            }
+
+            _superThrow = false;
+        }
+
+        public void StartThrowing()
+        {
+            _superThrowCooldown.Reset();
+        }
+
+        public void PerformThrowing()
+        {
+            if (!_throwCooldown.IsReady || SwordCount <= 1) return;
+
+            if (_superThrowCooldown.IsReady)
+            {
+                _superThrow = true;
+            }
+
+            _animator.SetTrigger(throwKey);
+            _throwCooldown.Reset();
+        }
+
+        private void ThrowAndRemoveFromInventory()
+        {
             _particles.Spawn("Throw");
+            _session.Data.Inventory.Remove("Sword", 1);
+        }
+
+        private IEnumerator DoSuperThrow(int numThrows)
+        {
+            for (int i = 0; i < numThrows; i++)
+            {
+                ThrowAndRemoveFromInventory();
+                yield return new WaitForSeconds(_superThrowDelay);
+            }
         }
     }
 }

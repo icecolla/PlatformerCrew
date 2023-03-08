@@ -1556,6 +1556,18 @@ PrefabInstance:
       propertyPath: _groundCheck
       value: 
       objectReference: {fileID: 1020963744}
+    - target: {fileID: 5660094024218399229, guid: c2c10c20bffb5474dbfc655fecebb7a6, type: 3}
+      propertyPath: _superThrowDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660094024218399229, guid: c2c10c20bffb5474dbfc655fecebb7a6, type: 3}
+      propertyPath: _superThrowParticles
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660094024218399229, guid: c2c10c20bffb5474dbfc655fecebb7a6, type: 3}
+      propertyPath: _superThrowCooldown._value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5660094024218399231, guid: c2c10c20bffb5474dbfc655fecebb7a6, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2910,7 +2922,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: Sword
+        Value: 10
     Hp: 5
 --- !u!4 &1787507990
 Transform:

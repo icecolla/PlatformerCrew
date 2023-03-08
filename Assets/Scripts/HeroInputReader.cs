@@ -39,9 +39,13 @@ namespace PixelCrew
         }
         public void OnThrow(InputAction.CallbackContext context)
         {
-            if (context.phase == InputActionPhase.Performed)
+            if (context.phase == InputActionPhase.Started)
             {
-                _hero.ThrowAnimation();
+                _hero.StartThrowing();
+            }
+            if (context.phase == InputActionPhase.Canceled)
+            {
+                _hero.PerformThrowing();
             }
         }
     }
